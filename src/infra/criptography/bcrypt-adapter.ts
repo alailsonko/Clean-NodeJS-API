@@ -9,8 +9,8 @@ export class BcryptAdapter implements Encrypter {
   }
 
   async encrypt (value: string): Promise<string> {
-    await bcrypt.hash(value, this.salt)
+    const hash = await bcrypt.hash(value, this.salt)
     // eslint-disable-next-line @typescript-eslint/return-await
-    return null
+    return hash
   }
 }
